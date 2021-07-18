@@ -30,6 +30,6 @@
    - service-statistics:统计模块，前端整合Echarts来实现简单的一个折线图统计。
    - service-acl:权限管理模块，整合Spring secruity实现用户管理，角色管理，以及菜单管理。用户根据角色来获取对应的菜单。
  - guli-admin:
-   - 前端运营管理模块，基础框架由 [vue-admin-template](http://panjiachen.github.io/vue-admin-template)搭建
+   - 前端运营管理模块，基础框架由 [vue-admin-template](https://github.com/PanJiaChen/vue-admin-template)搭建
  - guli-site；
    - 前台用户系统，使用 [nuxt.js](https://www.nuxtjs.cn/)快速搭建
