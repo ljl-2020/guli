@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ljl.guli.service.edu.mapper.CourseMapper">
+
+    <sql id="colums">
+        c.id,
+            c.title,
+            c.lesson_num as lessonNum,
+            convert(c.price,decimal (8,4)) as price,
+            c.cover,
+            c.buy_count as buyCount,
+            c.view_count as viewCount,
+            c.status,c.gmt_create as gmtCreate,
+            t.name as teacherName,
+            s1.title as subjectParentTitle,
+            s2.title as subjectTitle
+    </sql>
+
+    <sql id="coursePublish">
+        c.id,
+            c.title,
+            c.lesson_num as lessonNum,
+            convert(c.price,decimal (8,4)) as price,
+            c.cover,
+            t.name as teacherName,
+            s1.title as subjectParentTitle,
+            s2.title as subjectTitle
+    </sql>
+    <sql id="tables">
+        edu_course c
+        left join edu_teacher t on c.teacher_id = t.id
+        left join edu_subject s1 on c.subject_parent_id = s1.id
+        left join edu_subject s2 on c.subject_id = s2.id
+    </sql>
+    <select id="selePageByCourseQueryVo" resultType="com.ljl.guli.service.edu.entity.vo.CourseVo">
+        select
+            <include refid="colums"/>
+        from
+            <include refid="tables"/>
+        ${ew.customSqlSegment}
+    </select>
+    <select id="selectCoursePublishVoById" resultType="com.ljl.guli.service.edu.entity.vo.CoursePublishVo">
+        select <include refid="coursePublish"/>
+        from  <include refid="tables"/>
+        where c.id = #{id}
+    </select>
+    <select id="selectWebCourseVoByCourseId" resultType="com.ljl.guli.service.edu.entity.vo.WebCourseVo">
+        select
+            c.id,
+            c.title,
+            c.lesson_num as lessonNum,
+            convert(c.price,decimal (8,4)) as price,
+            c.cover,
+            c.buy_count as buyCount,
+            c.view_count as viewCount,
+            cd.description ,
+
+            t.id AS teacherId ,
+            t.name as teacherName ,
+            t.intro,
+            t.avatar,
+
+            s1.id as subjectLevelOneId,
+            s1.title as subjectLevelOne,
+            s2.id as subjectLevelTwoId,
+            s2.title as subjectLevelOne
+        from
+            edu_course c
+            left join edu_course_description cd on cd.id = c.id
+            left join edu_teacher t on c.teacher_id = t.id
+            left join edu_subject s1 on c.subject_parent_id = s1.id
+            left join edu_subject s2 on c.subject_id = s2.id
+        where c.id=#{id}
+    </select>
+    <select id="selectCourseDtoByCourseId" resultType="com.ljl.guli.service.base.dto.CourseDto">
+        select
+            c.id,
+            c.title,
+            convert(c.price,decimal (8,4)) as price,
+            c.cover,
+            t.name as teacherName
+        from
+            edu_course c
+            left join edu_teacher t on c.teacher_id = t.id
+        where c.id=#{id}
+    </select>
+</mapper>

@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: service-edu
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml #配置文件格式，后缀为propertites时不用此选项
+        namespace: 1a971ca3-0ed7-4c19-9700-6a64b1498dd3 #命名空间的ID

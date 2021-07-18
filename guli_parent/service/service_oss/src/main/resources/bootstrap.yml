@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: service-oss
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml #配置文件格式，后缀为propertites时不用此选项
+        namespace: fe1ec945-68c5-41ae-a43c-f42a06669b2c #命名空间的ID

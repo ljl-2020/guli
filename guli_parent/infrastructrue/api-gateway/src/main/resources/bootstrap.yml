@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: api-gateway
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml #配置文件格式，后缀为propertites时不用此选项
+        namespace: 43690956-e1fd-4e16-9201-c2ebbf22ee0c #命名空间的ID

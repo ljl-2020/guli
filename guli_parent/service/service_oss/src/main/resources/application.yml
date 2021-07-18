@@ -1,0 +1,25 @@
+#server:
+#  port: 8120
+#spring:
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: localhost:8848
+#  profiles:
+#    active: dev
+#  application:
+#    name: service-oss
+##  jackson:
+##    time-zone: GMT+8
+##    date-format: yyyy-MM-dd HH:mm:ss
+##  datasource:
+##    driver-class-name: com.mysql.cj.jdbc.Driver
+##    url: jdbc:mysql://localhost:3306/edu_service
+##    password: 123456
+##    username: root
+#aliyun:
+#  oss:
+#    endpoint: oss-cn-beijing.aliyuncs.com
+#    keyid: LTAI5tLGhCHtqEPvjS54vtvi
+#    keysecret: iY8Z36TmDSFeCVuXz0WsRCRxhqOo1S
+#    bucketname: ljl-file-20210514

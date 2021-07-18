@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: service-ucenter
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml #配置文件格式，后缀为propertites时不用此选项
+        namespace: 48383643-1e0d-4cfb-9cda-111e72dab4d1 #命名空间的ID

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ljl.guli.service.edu.mapper.CourseCollectMapper">
+
+
+    <select id="selectListByMemberId" resultType="com.ljl.guli.service.edu.entity.vo.CourseCollectVo">
+        select
+            c.id as courseId,
+            c.title as courseTitle,
+            convert(c.price,decimal (8,4)) as price,
+            c.lesson_num as lessonNum,
+            c.cover,
+            cc.gmt_create as gmtCreate,
+            t.name as teacherName
+        from
+            edu_course_collect cc
+            left join edu_course c on c.id = cc.course_id
+            left join edu_teacher t on c.teacher_id = t.id
+        where cc.member_id=#{id} and cc.is_deleted = 0
+    </select>
+</mapper>

@@ -1,0 +1,58 @@
+#server:
+#  port: 8190
+#  tomcat:
+#    max-threads: 10
+#spring:
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: localhost:8848
+#    sentinel:
+#      transport:
+#        port: 8081
+#        dashboard: localhost:8080
+#  profiles:
+#    active: dev
+#  application:
+#    name: service-acl
+#  jackson:
+#    time-zone: GMT+8
+#    date-format: yyyy-MM-dd HH:mm:ss
+#  redis:
+#    host: 127.0.0.1
+#    port: 6379
+#    database: 0
+#    password:  #默认为空
+#    lettuce:
+#      pool:
+#        max-active: 20  #最大连接数，负值表示没有限制，默认8
+#        max-wait: -1    #最大阻塞等待时间，负值表示没限制，默认-1
+#        max-idle: 8     #最大空闲连接，默认8
+#        min-idle: 0     #最小空闲连接，默认0
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/guli_acl
+#    password: 123456
+#    username: root
+#
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  mapper-locations: classpath:com/ljl/guli/service/acl/mapper/xml/*.xml
+#  global-config:
+#    db-config:
+#      logic-delete-field: isDeleted  #全局逻辑删除字段值 3.3.0开始支持，详情看下面。
+#      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+#      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+#
+#
+#
+##ribbon:
+##  MaxAutoRetries: 0
+##  MaxAutoRetriesNextServer: 1
+##  ConnectTimeout: 15000
+##  ReadTimeout: 15000
+##  熔断保护开启
+#feign:
+#  sentinel:
+#    enabled: true
